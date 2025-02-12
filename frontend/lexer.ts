@@ -9,6 +9,8 @@ export enum TokenType {
 
     // Keywords
     Let,
+    // VariableDeclarator,
+    // 
 
     // Grouping Operatorrs
     Equals,
@@ -22,7 +24,6 @@ export enum TokenType {
 const KEYWORDS: Record<string, TokenType> ={
     let: TokenType.Let,
     null: TokenType.Null,
-    
 }
 export interface Token {
     value: string;
@@ -51,7 +52,7 @@ export function tokenize(sourceCode: string): Token[] {
     const tokens = new Array<Token>();
     const src = sourceCode.split(""); // read by character
 
-    // building each token until the end of the file
+   
     while (src.length > 0 ){
         if(src[0] == "(") {
             tokens.push(token(src.shift(), TokenType.OpenParen));
@@ -62,7 +63,7 @@ export function tokenize(sourceCode: string): Token[] {
     }else if(src[0] == "="){
         tokens.push(token(src.shift(), TokenType.Equals));
     }else {
-        // Handling multi character tokens
+       
         if(isint(src[0])) {
             let num = "";
             while(src.length > 0 && isint(src[0])){

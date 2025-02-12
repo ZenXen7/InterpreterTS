@@ -49,7 +49,7 @@ export default class Parser {
         return this.parse_additive_expr();
     }
 
-    // 10 + 5 - 5 example of additive left hand precedence
+   
     private parse_additive_expr (): Expr {
         let left = this.parse_multiplicative_expr(); // multiplcation has more presedence so we call it 
         
@@ -87,7 +87,17 @@ export default class Parser {
 
         return left;
     }
-    // Orders of Prescidence
+
+    // private parse_variable_change (): Expr {
+        
+    //     while(this.at())
+    //     //  if using the let operator and "=" changes value.
+
+
+    // }
+
+
+    // Order of Poopidence
     // AssignmentExpression
     // MemberExpression
     // FunctionCall
